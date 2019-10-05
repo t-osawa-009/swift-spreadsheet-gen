@@ -11,7 +11,7 @@ update:
 	swift package update
 
 build:
-	swift build -c release -Xswiftc -static-stdlib
+	swift build -c release
 
 clean:
 	swift package clean
