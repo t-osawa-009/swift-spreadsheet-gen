@@ -1,3 +1,4 @@
 # swift-spreadsheet-gen
 
-A description of this package.
+Convert a Google Spreadsheet to a file
+
