@@ -3,7 +3,6 @@
 Convert a Google Spreadsheet to a file. This project is heavily inspired by the [xvrh/localize-with-spreadsheet](https://github.com/xvrh/localize-with-spreadsheet), [SwiftGen/SwiftGen](https://github.com/SwiftGen/SwiftGen)
 
 ## Installation
-## Installation
 ### Makefile
 ```sh
 $ git clone git@github.com:takuchantuyoshi/swift-spreadsheet-gen.git
