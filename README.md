@@ -17,9 +17,9 @@ $ mint install takuchantuyoshi/swift-spreadsheet-gen
 ## Usage
 To use swift-spreadsheet-gen, simply create a `swift_spreadsheet_gen.yml` YAML file to list all the subcommands to invoke, and for each subcommand, the list of arguments to pass to it. For example:
 ```
-id: "your Google Spreadsheet id"
-sheet_number: your Google Spreadsheet number
 strings:
+  id: "your Google Spreadsheet id"
+  sheet_number: your Google Spreadsheet number
   outputs:
     - key: KEY
       value_key: ja
