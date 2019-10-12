@@ -7,9 +7,8 @@ let main = command(
 ) { (config_path) in
     do {
         let yaml = try Yaml(path: config_path)
-        let results = YamlCommonParser(jsons: yaml.jsons)
         let strings = YamlStringsParser(jsons: yaml.jsons)
-        let request = SpreadsheetRequest(id: results.id, sheetNumber: results.sheet_number)
+        let request = SpreadsheetRequest(id: strings.id, sheetNumber: strings.sheet_number)
         let client = APIClient()
         client.send(request) { (result) in
             switch result {

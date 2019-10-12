@@ -18,22 +18,6 @@ struct Yaml {
     }
 }
 
-struct YamlCommonParser {
-    let id: String
-    let sheet_number: Int
-    init(jsons: [JSON]) {
-        var _id: String = ""
-        var _sheet_number = 0
-        jsons.forEach { (json) in
-            _id = json["id"].stringValue
-            _sheet_number = json["sheet_number"].intValue
-        }
-        
-        self.id = _id
-        self.sheet_number = _sheet_number
-    }
-}
-
 struct YamlStringsParser {
     struct Output {
         let key: String
@@ -52,10 +36,17 @@ struct YamlStringsParser {
     }
     
     var outputs: [Output]
+    let id: String
+    let sheet_number: Int
     init(jsons: [JSON]) {
         var _outputs: [Output] = []
+        var _id: String = ""
+        var _sheet_number = 0
+        
         jsons.forEach { (json) in
             let strings = json["strings"]["outputs"].arrayValue
+            _id = json["strings"]["id"].stringValue
+            _sheet_number = json["strings"]["sheet_number"].intValue
             _outputs = strings.map({ (_json: JSON) in
                 return Output(key: _json["key"].stringValue.lowercased(),
                               valueKey: _json["value_key"].stringValue.lowercased(),
@@ -63,7 +54,8 @@ struct YamlStringsParser {
                               format: Format(rawValue: _json["format"].stringValue))
             })
         }
-        
+        self.id = _id
+        self.sheet_number = _sheet_number
         self.outputs = _outputs
     }
 }
