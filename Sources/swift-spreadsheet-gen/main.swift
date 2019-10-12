@@ -7,25 +7,52 @@ let main = command(
 ) { (config_path) in
     do {
         let yaml = try Yaml(path: config_path)
-        let strings = YamlStringsParser(jsons: yaml.jsons)
         let dispatchGroup = DispatchGroup()
         let dispatchQueue = DispatchQueue(label: "queue", attributes: .concurrent)
         
-        let spreadsheetClient = SpreadsheetClient(id: strings.id,
-                                                  sheet_number: strings.sheet_number,
-                                                  outputs: strings.outputs)
         dispatchGroup.enter()
-        dispatchQueue.async(group: dispatchGroup) {
-            spreadsheetClient.execute { (result) in
-                switch result {
-                case .success(_):
-                    break
-                case .failure(let error):
-                    print(error.localizedDescription)
-                    exit(1)
+        if let strings = YamlStringsParser(jsons: yaml.jsons) {
+            print("start strings generate")
+            let spreadsheetClient = SpreadsheetClient(id: strings.id,
+                                                      sheet_number: strings.sheet_number,
+                                                      outputs: strings.outputs)
+            dispatchQueue.async(group: dispatchGroup) {
+                spreadsheetClient.execute { (result) in
+                    switch result {
+                    case .success(_):
+                        print("success strings !!")
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                        exit(1)
+                    }
+                    dispatchGroup.leave()
                 }
-                dispatchGroup.leave()
             }
+        } else {
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        if let customKey = YamlCustomKeyParser(jsons: yaml.jsons) {
+            print("start customKey generate")
+            let customKeyClient = CustomKeyClient(id: customKey.id,
+                                                  sheet_number: customKey.sheet_number,
+                                                  outputs: customKey.outputs)
+            
+            dispatchQueue.async(group: dispatchGroup) {
+                customKeyClient.execute { (result) in
+                    switch result {
+                    case .success(_):
+                        print("success customKey !!")
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                        exit(1)
+                    }
+                    dispatchGroup.leave()
+                }
+            }
+        } else {
+            dispatchGroup.leave()
         }
         
         dispatchGroup.notify(queue: .main) {

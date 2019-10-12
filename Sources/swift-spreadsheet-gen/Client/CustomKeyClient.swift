@@ -1,10 +1,10 @@
 import Foundation
 
-final class SpreadsheetClient {
+final class CustomKeyClient {
     private let id: String
     private let sheet_number: Int
-    private let outputs: [YamlStringsParser.Output]
-    init(id: String, sheet_number: Int, outputs: [YamlStringsParser.Output]) {
+    private let outputs: [YamlCustomKeyParser.Output]
+    init(id: String, sheet_number: Int, outputs: [YamlCustomKeyParser.Output]) {
         self.id = id
         self.sheet_number = sheet_number
         self.outputs = outputs
@@ -22,22 +22,13 @@ final class SpreadsheetClient {
                     switch output.format {
                     case nil:
                         print("Error: no support format")
-                    case .xml:
-                        let creator = LocalizableFileCreatorForXML(entryObjects: objects,
-                                                                   key: output.key,
-                                                                   valuekey: output.valueKey,
-                                                                   outputPath: output.output)
-                        do {
-                            try creator.write()
-                        } catch let _error {
-                            print("Error: \(_error.localizedDescription)")
-                            completion(.failure(_error))
-                        }
-                    case .strings:
-                        let creator = LocalizableFileCreatorForStrings(entryObjects: objects,
-                                                                       key: output.key,
-                                                                       valuekey: output.valueKey,
-                                                                       outputPath: output.output)
+                    case .swift:
+                        let creator = CustomKeyFileCreator(entryObjects: objects,
+                                                           key: output.key,
+                                                           valuekey: output.valueKey,
+                                                           enumName: output.enumName,
+                                                           publicAccess: output.publicAccess,
+                                                           outputPath: output.output)
                         do {
                             try creator.write()
                         } catch let _error {

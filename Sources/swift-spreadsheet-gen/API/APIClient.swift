@@ -1,7 +1,7 @@
 import Foundation
 
 final class APIClient {
-    init(session: URLSession = URLSession.shared) {
+    init(session: URLSession = URLSession(configuration: .default)) {
         self.session = session
     }
     
