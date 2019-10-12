@@ -29,6 +29,14 @@ strings:
       value_key: en
       output: ./en.lproj/Localizable.strings
       format: strings
+customKey:
+  id: "your Google Spreadsheet id"
+  sheet_number: your Google Spreadsheet number
+  outputs:
+    - key: KEY
+      value_key: KEY
+      output: ./Localizable.swift
+      enumName: Strigs
 ```
 Then you just have to invoke `swift-spreadsheet-gen` and it will execute what's described in the configuration file.
 
