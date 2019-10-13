@@ -27,8 +27,8 @@ strings:
       format: strings
     - key: KEY
       value_key: en
-      output: ./en.lproj/Localizable.strings
-      format: strings
+      output: ./en.lproj/Localizable.xml
+      format: xml
 customKey:
   id: "your Google Spreadsheet id"
   sheet_number: your Google Spreadsheet number
