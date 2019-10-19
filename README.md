@@ -15,6 +15,9 @@ $ mint install takuchantuyoshi/swift-spreadsheet-gen
 ```
 
 ## Usage
+Given a Google Spreadsheet like this:
+[Spreadsheet](https://docs.google.com/spreadsheets/d/1zVw1G2LvoJOnnaez3Tuf2Kxqt7S8-zATNazY14FgBwI/edit?usp=sharing)
+
 To use swift-spreadsheet-gen, simply create a `swift_spreadsheet_gen.yml` YAML file to list all the subcommands to invoke, and for each subcommand, the list of arguments to pass to it. For example:
 ```
 strings:
