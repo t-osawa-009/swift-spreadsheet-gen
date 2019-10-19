@@ -80,7 +80,7 @@ struct LocalizableFileCreatorForStrings: FileCreatable {
             let _key = value.dic[key]?.stringValue ?? ""
             let _value = value.dic[valuekey]?.stringValue ?? ""
             return """
-            "\(_key)" = "\(_value)"
+            "\(_key)" = "\(_value)";
             """
         })
         let results = strings.joined(separator: "\n")

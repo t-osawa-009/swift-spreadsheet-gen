@@ -64,4 +64,4 @@ let main = command(
         print("Error: \(_error.localizedDescription)")
     }
 }
-main.run("0.0.1")
+main.run("0.0.3")

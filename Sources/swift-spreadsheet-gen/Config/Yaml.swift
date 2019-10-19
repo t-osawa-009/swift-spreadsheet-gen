@@ -97,7 +97,8 @@ struct YamlCustomKeyParser {
                 return Output(key: _json["key"].stringValue.lowercased(),
                               valueKey: _json["value_key"].stringValue.lowercased(),
                               output: _json["output"].stringValue,
-                              format: Format(rawValue: _json["format"].stringValue), enumName: _json["enumName"].string ?? "CustomKey",
+                              format: Format(rawValue: _json["format"].string ?? Format.swift.rawValue),
+                              enumName: _json["enumName"].string ?? "CustomKey",
                               publicAccess: _json["publicAccess"].bool ?? false)
             })
         }
