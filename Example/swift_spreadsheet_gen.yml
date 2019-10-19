@@ -10,3 +10,11 @@ strings:
       value_key: en
       output: ./swift_spreadsheet_gen-sample/Strings/en.lproj/Localizable.strings
       format: strings
+customKey:
+  id: "1zVw1G2LvoJOnnaez3Tuf2Kxqt7S8-zATNazY14FgBwI"
+  sheet_number: 1
+  outputs:
+    - key: key
+      value_key: key
+      output: ./swift_spreadsheet_gen-sample/Localizable.swift
+      enumName: LocalizableKey
