@@ -5,13 +5,13 @@ Convert a Google Spreadsheet to a file. This project is heavily inspired by the 
 ## Installation
 ### Makefile
 ```sh
-$ git clone git@github.com:takuchantuyoshi/swift-spreadsheet-gen.git
+$ git clone git@github.com:t-osawa-009/swift-spreadsheet-gen.git
 $ cd swift-spreadsheet-gen
 $ make install
 ```
 ### [Mint](https://github.com/yonaskolb/Mint)
 ```sh
-$ mint install takuchantuyoshi/swift-spreadsheet-gen
+$ mint install t-osawa-009/swift-spreadsheet-gen
 ```
 
 ## Usage
