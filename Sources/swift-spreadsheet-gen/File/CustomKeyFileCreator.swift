@@ -18,20 +18,19 @@ struct CustomKeyFileCreator: FileCreatable {
                 return "internal"
             }
         }()
-        let enumNameKey: String = {
-            if isCamelized {
-                return enumName.camelized()
-            } else {
-                return enumName
-            }
-        }()
         let header = """
-        \(access) enum \(enumNameKey): String {
+        \(access) enum \(enumName): String {
         """
         strings.append(header)
         strings.append(contentsOf: entryObjects.map({ value -> String in
-            let _key = value.dic[key]?.stringValue ?? ""
             let _value = value.dic[valuekey]?.stringValue ?? ""
+            let _key: String = {
+                if isCamelized {
+                    return (value.dic[key]?.stringValue ?? "").camelized()
+                } else {
+                    return value.dic[key]?.stringValue ?? ""
+                }
+            }()
             return """
                 case \(_key) = "\(_value)"
             """
