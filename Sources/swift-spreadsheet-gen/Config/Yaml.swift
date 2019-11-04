@@ -101,7 +101,7 @@ struct YamlCustomKeyParser {
                               format: Format(rawValue: _json["format"].string ?? Format.swift.rawValue),
                               enumName: _json["enumName"].string ?? "CustomKey",
                               publicAccess: _json["publicAccess"].bool ?? false,
-                              isCamelized: _json["isCamelized"].bool ?? false)
+                              isCamelized: _json["is_camelized"].bool ?? false)
             })
         }
         guard let id = _id, let sheet_number = _sheet_number else {
