@@ -3,4 +3,5 @@ internal enum LocalizableKey: String {
     case banana = "banana"
     case orange = "orange"
     case peaches = "peaches"
+    case kiwiFruit = "kiwi_fruit"
 }

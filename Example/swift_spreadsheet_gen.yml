@@ -18,3 +18,4 @@ customKey:
       value_key: key
       output: ./swift_spreadsheet_gen-sample/Localizable.swift
       enumName: LocalizableKey
+      is_camelized: true

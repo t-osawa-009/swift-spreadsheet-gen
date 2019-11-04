@@ -23,8 +23,14 @@ struct CustomKeyFileCreator: FileCreatable {
         """
         strings.append(header)
         strings.append(contentsOf: entryObjects.map({ value -> String in
-            let _key = value.dic[key]?.stringValue ?? ""
             let _value = value.dic[valuekey]?.stringValue ?? ""
+            let _key: String = {
+                if isCamelized {
+                    return (value.dic[key]?.stringValue ?? "").camelized()
+                } else {
+                    return value.dic[key]?.stringValue ?? ""
+                }
+            }()
             return """
                 case \(_key) = "\(_value)"
             """
@@ -48,12 +54,15 @@ struct CustomKeyFileCreator: FileCreatable {
     private let outputPath: String
     private let enumName: String
     private let publicAccess: Bool
-    init(entryObjects: [EntryObject], key: String, valuekey: String, enumName: String, publicAccess: Bool, outputPath: String) {
+    private let isCamelized: Bool
+    
+    init(entryObjects: [EntryObject], key: String, valuekey: String, enumName: String, publicAccess: Bool, outputPath: String, isCamelized: Bool) {
         self.entryObjects = entryObjects
         self.key = key
         self.valuekey = valuekey
         self.enumName = enumName
         self.publicAccess = publicAccess
         self.outputPath = outputPath
+        self.isCamelized = isCamelized
     }
 }

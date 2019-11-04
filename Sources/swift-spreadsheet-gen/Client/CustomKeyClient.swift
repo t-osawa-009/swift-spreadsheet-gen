@@ -28,7 +28,8 @@ final class CustomKeyClient {
                                                            valuekey: output.valueKey,
                                                            enumName: output.enumName,
                                                            publicAccess: output.publicAccess,
-                                                           outputPath: output.output)
+                                                           outputPath: output.output,
+                                                           isCamelized: output.isCamelized)
                         do {
                             try creator.write()
                         } catch let _error {
