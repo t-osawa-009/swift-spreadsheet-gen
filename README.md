@@ -40,6 +40,7 @@ customKey:
       value_key: KEY
       output: ./Localizable.swift
       enumName: Strigs
+      is_camelized: true
 ```
 Then you just have to invoke `swift-spreadsheet-gen` and it will execute what's described in the configuration file.
 
