@@ -18,8 +18,15 @@ struct CustomKeyFileCreator: FileCreatable {
                 return "internal"
             }
         }()
+        let enumNameKey: String = {
+            if isCamelized {
+                return enumName.camelized()
+            } else {
+                return enumName
+            }
+        }()
         let header = """
-        \(access) enum \(enumName): String {
+        \(access) enum \(enumNameKey): String {
         """
         strings.append(header)
         strings.append(contentsOf: entryObjects.map({ value -> String in
@@ -48,12 +55,15 @@ struct CustomKeyFileCreator: FileCreatable {
     private let outputPath: String
     private let enumName: String
     private let publicAccess: Bool
-    init(entryObjects: [EntryObject], key: String, valuekey: String, enumName: String, publicAccess: Bool, outputPath: String) {
+    private let isCamelized: Bool
+    
+    init(entryObjects: [EntryObject], key: String, valuekey: String, enumName: String, publicAccess: Bool, outputPath: String, isCamelized: Bool) {
         self.entryObjects = entryObjects
         self.key = key
         self.valuekey = valuekey
         self.enumName = enumName
         self.publicAccess = publicAccess
         self.outputPath = outputPath
+        self.isCamelized = isCamelized
     }
 }
