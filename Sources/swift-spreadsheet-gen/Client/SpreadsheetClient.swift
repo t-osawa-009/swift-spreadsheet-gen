@@ -20,9 +20,9 @@ final class SpreadsheetClient {
     }
 
     private let client = APIClient()
-    func execute(completion:  @escaping (Result<Void, Error>) -> Void) {
+    func execute(completion: @escaping (Result<Void, Error>) -> Void) {
         let _outputs = self.outputs
-        var requests = [SpreadsheetRequest]()
+        let requests = [SpreadsheetRequest]()
         var format: YamlStringsParser.Format = .strings
         var filesCreationData = [LocalizedFileCreationData]()
         let requestsGroup = DispatchGroup()
@@ -42,9 +42,7 @@ final class SpreadsheetClient {
                             let fileData = LocalizedFileCreationData(allObjects: objects, outputPath: output.output, outputKey: output.key, outputValuekey: output.valueKey)
                             filesCreationData.append(fileData)
                         }
-
                     }
-
                 case .failure(let error):
                     print("Error: \(error.localizedDescription)")
                     completion(.failure(error))
