@@ -4,9 +4,6 @@ BUILD_FOLDER?=.build
 PREFIX?=/usr/local
 RELEASE_BINARY_FOLDER?=$(BUILD_FOLDER)/release/$(PROJECT)
 
-xcode:
-	swift package generate-xcodeproj
-
 update:
 	swift package update
 
