@@ -13,7 +13,7 @@ final class APIClient {
         _request.httpMethod = apiRequest.method.rawValue
         let task = session.ex.dataTask(request: _request) { (result) in
             switch result {
-            case .success(let data, let response):
+            case .success((let data, let response)):
                 do {
                     let object = try apiRequest.response(from: data, urlResponse: response)
                     handler(.success(object))

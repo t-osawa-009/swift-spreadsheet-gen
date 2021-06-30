@@ -14,7 +14,7 @@ let main = command(
         if let strings = YamlStringsParser(jsons: yaml.jsons) {
             print("start strings generate")
             let spreadsheetClient = SpreadsheetClient(id: strings.id,
-                                                      sheet_number: strings.sheet_number,
+                                                      sheet_numbers: strings.sheet_numbers,
                                                       outputs: strings.outputs)
             dispatchQueue.async(group: dispatchGroup) {
                 spreadsheetClient.execute { (result) in
