@@ -22,7 +22,7 @@ final class SpreadsheetClient {
     private let client = APIClient()
     func execute(completion: @escaping (Result<Void, Error>) -> Void) {
         let _outputs = self.outputs
-        let requests = [SpreadsheetRequest]()
+        let requests = self.sheet_numbers.map({ SpreadsheetRequest(id: id, sheetNumber: $0) })
         var format: YamlStringsParser.Format = .strings
         var filesCreationData = [LocalizedFileCreationData]()
         let requestsGroup = DispatchGroup()
@@ -44,7 +44,7 @@ final class SpreadsheetClient {
                         }
                     }
                 case .failure(let error):
-                    print("Error: \(error.localizedDescription)")
+                    print("Network Error: \(error.localizedDescription)")
                     completion(.failure(error))
                 }
                 requestsGroup.leave()
@@ -74,7 +74,7 @@ final class SpreadsheetClient {
                 do {
                     try creator.write()
                 } catch let _error {
-                    print("Error: \(_error.localizedDescription)")
+                    print("XML File write Error: \(_error.localizedDescription)")
                     completion(.failure(_error))
                 }
                 completionGroup.leave()
@@ -85,7 +85,7 @@ final class SpreadsheetClient {
                 do {
                     try creator.write()
                 } catch let _error {
-                    print("Error: \(_error.localizedDescription)")
+                    print("Strings File write Error: \(_error.localizedDescription)")
                     completion(.failure(_error))
                 }
                 completionGroup.leave()

@@ -36,7 +36,7 @@ let main = command(
         if let customKey = YamlCustomKeyParser(jsons: yaml.jsons) {
             print("start customKey generate")
             let customKeyClient = CustomKeyClient(id: customKey.id,
-                                                  sheet_number: customKey.sheet_number,
+                                                  sheet_numbers: customKey.sheet_numbers,
                                                   outputs: customKey.outputs)
             
             dispatchQueue.async(group: dispatchGroup) {

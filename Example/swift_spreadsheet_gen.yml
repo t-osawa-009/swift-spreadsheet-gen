@@ -1,6 +1,6 @@
 strings:
   id: "1zVw1G2LvoJOnnaez3Tuf2Kxqt7S8-zATNazY14FgBwI"
-  sheet_numbers: [1]
+  sheet_numbers: [1, 2]
   outputs:
     - key: key
       value_key: ja
@@ -12,7 +12,7 @@ strings:
       format: strings
 customKey:
   id: "1zVw1G2LvoJOnnaez3Tuf2Kxqt7S8-zATNazY14FgBwI"
-  sheet_numbers: [1]
+  sheet_numbers: [1, 2]
   outputs:
     - key: key
       value_key: key

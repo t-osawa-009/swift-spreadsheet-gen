@@ -84,16 +84,16 @@ struct YamlCustomKeyParser {
     
     var outputs: [Output]
     let id: String
-    let sheet_number: Int
+    let sheet_numbers: [Int]
     init?(jsons: [JSON]) {
         var _outputs: [Output] = []
         var _id: String?
-        var _sheet_number: Int?
+        var _sheet_numbers: [Int]?
         
         jsons.forEach { (json) in
             let strings = json["customKey"]["outputs"].arrayValue
             _id = json["customKey"]["id"].string
-            _sheet_number = json["customKey"]["sheet_number"].int
+            _sheet_numbers = json["customKey"]["sheet_numbers"].arrayValue.map({ $0.intValue })
             _outputs = strings.map({ (_json: JSON) in
                 return Output(key: _json["key"].stringValue.lowercased(),
                               valueKey: _json["value_key"].stringValue.lowercased(),
@@ -104,11 +104,11 @@ struct YamlCustomKeyParser {
                               isCamelized: _json["is_camelized"].bool ?? false)
             })
         }
-        guard let id = _id, let sheet_number = _sheet_number else {
+        guard let id = _id, let _sheet_numbers = _sheet_numbers else {
             return nil
         }
         self.id = id
-        self.sheet_number = sheet_number
+        self.sheet_numbers = _sheet_numbers
         self.outputs = _outputs
     }
 }

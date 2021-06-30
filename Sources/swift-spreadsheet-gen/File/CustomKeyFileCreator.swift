@@ -48,10 +48,10 @@ struct CustomKeyFileCreator: FileCreatable {
         }
     }
     
-    private let entryObjects: [EntryObject]
+    var entryObjects: [EntryObject]
     private let key: String
     private let valuekey: String
-    private let outputPath: String
+    let outputPath: String
     private let enumName: String
     private let publicAccess: Bool
     private let isCamelized: Bool
