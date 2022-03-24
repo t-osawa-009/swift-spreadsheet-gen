@@ -16,7 +16,7 @@ protocol APIRequest {
 
 extension APIRequest {
     var baseURL: URL {
-        return URL(string: "https://spreadsheets.google.com/feeds/list/")!
+        return URL(string: "https://docs.google.com/spreadsheets/d/")!
     }
     
     var parameters: [String: Any]? {
