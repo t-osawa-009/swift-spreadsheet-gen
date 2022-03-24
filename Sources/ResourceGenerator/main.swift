@@ -13,7 +13,6 @@ do {
             path = (_path as NSString).deletingLastPathComponent
         }
     }
-    
     let yaml = try Yaml(path: path)
     let dispatchGroup = DispatchGroup()
     let dispatchQueue = DispatchQueue(label: "queue", attributes: .concurrent)

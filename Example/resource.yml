@@ -1,11 +1,11 @@
 strings:
-  # id: "1VlhuTg7wiQE-fW0zXCiUDXEsJs7BBs73y6lNEZjwLYs" just for finding porpuse.
+  id: "1VlhuTg7wiQE-fW0zXCiUDXEsJs7BBs73y6lNEZjwLYs"
   url: "e/2PACX-1vREXIZsyQWo7kuenbabwlvtFaaolwnmqrpqfTrB7MuG5YLw5l2gHptu_jZTtc2I3zb69J5oMSyRlouS/pub"
   sheet_numbers: [0, 108846776]
   languages: ["en", "de"]
   key: "Key"
   outputs:
     - format: strings
-      output: /swift_spreadsheet_gen-sample/Strings/
+      path: /swift_spreadsheet_gen-sample/Strings/
     - format: xml
-      output: /swift_spreadsheet_gen-sample/Strings/
+      path: /swift_spreadsheet_gen-sample/Strings/

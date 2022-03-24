@@ -35,10 +35,10 @@ struct LocalizableFileCreatorForXML: FileCreatable {
         """
         }
         strings += "</resources>"
-        
         path += outputPath + "values-\(languageData.language)/"
-        let folder = try Folder(path: path)
         let fileName = "strings.xml"
+        print("[INFO] - Writing to \(path)")
+        let folder = try Folder(path: path)
         let file = try folder.createFileIfNeeded(at: fileName)
         try file.write(strings)
     }
@@ -71,10 +71,10 @@ struct LocalizableFileCreatorForStrings: FileCreatable {
         for (index, key) in languageData.keys.enumerated() {
             output += "\"\(key)\" = \"\(languageData.values[index])\";\n"
         }
-        
         path += outputPath + "\(languageData.language).lproj/"
-        let folder = try Folder(path: path)
         let fileName = "Localizable.strings"
+        print("[INFO] - Writing to \(path)")
+        let folder = try Folder(path: path)
         let file = try folder.createFileIfNeeded(at: fileName)
         do {
             try file.write(output)

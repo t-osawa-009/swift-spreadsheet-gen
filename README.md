@@ -22,7 +22,7 @@ You should publish the sheet as a CSV.
 
 ![enter image description here](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5915e1a02c7d3a057f890932/images/618d2e7012c07c18afde6edc/file-D8dJEYqihf.gif)
 
-To use swift-spreadsheet-gen, simply create a `swift_spreadsheet_gen.yml` YAML file to list all the subcommands to invoke, and for each subcommand, the list of arguments to pass to it. For example:
+To use swift-spreadsheet-gen, simply create a `resource.yml` YAML file to list all the subcommands to invoke, and for each subcommand, the list of arguments to pass to it. For example:
 ```
 strings:
   # To find your sheet next time just save it
@@ -42,7 +42,7 @@ strings:
     - format: xml
       path: /swift_spreadsheet_gen-sample/Strings/
 ```
-Then you just have to invoke `swift-spreadsheet-gen` and it will execute what's described in the configuration file.
+Then you just have to invoke `ResourceGenerator` and it will execute what's described in the configuration file.
 
 ## Notes
 - You should put the YAML file beside the execute file.

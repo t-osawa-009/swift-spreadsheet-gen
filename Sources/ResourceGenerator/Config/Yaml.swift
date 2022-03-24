@@ -7,7 +7,7 @@ struct Yaml {
     let jsons: [JSON]
     init(path: String) throws {
         let folder = try Folder(path: path)
-        let file = try folder.file(named: "swift_spreadsheet_gen.yml")
+        let file = try folder.file(named: "resource.yml")
         let string = try file.readAsString()
         var items = try Yams.load_all(yaml: string)
         var _result: [JSON] = []

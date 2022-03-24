@@ -4,9 +4,9 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-spreadsheet-gen",
+    name: "ResourceGenerator",
     products: [
-        .executable(name: "swift-spreadsheet-gen", targets: ["swift-spreadsheet-gen"]),
+        .executable(name: "ResourceGenerator", targets: ["ResourceGenerator"]),
     ],
     dependencies: [
         .package(url: "https://github.com/kylef/Commander.git", from: "0.9.0"),
@@ -17,7 +17,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "swift-spreadsheet-gen",
+            name: "ResourceGenerator",
         dependencies: ["Commander", "SwiftyJSON", "Files", "Yams", "SwiftCSV"]),
     ]
 )
