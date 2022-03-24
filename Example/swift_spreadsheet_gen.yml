@@ -1,21 +1,11 @@
 strings:
-  id: "1zVw1G2LvoJOnnaez3Tuf2Kxqt7S8-zATNazY14FgBwI"
-  sheet_numbers: [1, 2]
+  # id: "1VlhuTg7wiQE-fW0zXCiUDXEsJs7BBs73y6lNEZjwLYs" just for finding porpuse.
+  url: "e/2PACX-1vREXIZsyQWo7kuenbabwlvtFaaolwnmqrpqfTrB7MuG5YLw5l2gHptu_jZTtc2I3zb69J5oMSyRlouS/pub"
+  sheet_numbers: [0, 108846776]
+  languages: ["en", "de"]
+  key: "Key"
   outputs:
-    - key: key
-      value_key: ja
-      output: ./swift_spreadsheet_gen-sample/Strings/ja.lproj/Localizable.strings
-      format: strings
-    - key: key
-      value_key: en
-      output: ./swift_spreadsheet_gen-sample/Strings/en.lproj/Localizable.strings
-      format: strings
-customKey:
-  id: "1zVw1G2LvoJOnnaez3Tuf2Kxqt7S8-zATNazY14FgBwI"
-  sheet_numbers: [1, 2]
-  outputs:
-    - key: key
-      value_key: key
-      output: ./swift_spreadsheet_gen-sample/Localizable.swift
-      enumName: LocalizableKey
-      is_camelized: true
+    - format: strings
+      output: /swift_spreadsheet_gen-sample/Strings/
+    - format: xml
+      output: /swift_spreadsheet_gen-sample/Strings/
