@@ -1,7 +1,8 @@
 
 # swift-spreadsheet-gen
 
-Convert a Google Spreadsheet to a file. This project is heavily inspired by the [xvrh/localize-with-spreadsheet](https://github.com/xvrh/localize-with-spreadsheet), [SwiftGen/SwiftGen](https://github.com/SwiftGen/SwiftGen)
+Store and manage localizations in Google sheets, then localization files for iOS/Android will be generated from your Google spreadsheets while building.
+<br>This project is heavily inspired by the [xvrh/localize-with-spreadsheet](https://github.com/xvrh/localize-with-spreadsheet), [SwiftGen/SwiftGen](https://github.com/SwiftGen/SwiftGen)
 In this project, we use CSV format to generate files.
 ## Installation
 ### Makefile
