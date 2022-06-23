@@ -1,0 +1,10 @@
+strings:
+  id: "1zVw1G2LvoJOnnaez3Tuf2Kxqt7S8-zATNazY14FgBwI"
+  sheet_numbers: [0, 136006322]
+  languages: ["en", "ja"]
+  key: "Key"
+  outputs:
+    - format: strings
+      path: /Users/reza.dehnavi/Downloads/swift-spreadsheet-gen-master/Example/swift_spreadsheet_gen-sample/Strings/
+    - format: xml
+      path: /Users/reza.dehnavi/Downloads/swift-spreadsheet-gen-master/Example/swift_spreadsheet_gen-sample/Strings/
